@@ -1,10 +1,12 @@
+var passwordHash = require('password-hash');
+
 function createUtilisateur(req, res) {
     let Utilisateur = require('../models/utilisateur');
     let newUtilisateur = Utilisateur ({
         name: req.body.name,
         firstname: req.body.firstname,
         mail: req.body.mail,
-        password: req.body.password,
+        password: passwordHash.generate(req.body.password),
     });
   
     newUtilisateur.save()

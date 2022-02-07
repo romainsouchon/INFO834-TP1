@@ -2,7 +2,9 @@ function createUtilisateur(req, res) {
     let Utilisateur = require('../models/utilisateur');
     let newUtilisateur = Utilisateur ({
         name: req.body.name,
-        nbappel : req.body.nbappel
+        firstname: req.body.firstname,
+        mail: req.body.mail,
+        password: req.body.password,
     });
   
     newUtilisateur.save()
